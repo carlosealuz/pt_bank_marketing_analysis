@@ -37,7 +37,38 @@ This data consist of 16 inputs plus the target. The inputs are the following:
 So, there are some informations interesting in this features, specially the columns with "unknown" values (education, job, contact and poutcome). This could be treated as a new category or as a missing data. In my analysis some columns I use this as a category like job, and other columns I decide to replace unkown values with one category already at the dataset, like contact. Also, poutcome column I decide to treat "unknown" as missing data and end up droping the entire columns because the majority of values were missing.
 
 ## EDA <a name="EDA"></a>
+I did an EDA to undestand the dataset before train some models and to give some feedback to this bank marketing team about this campaign. Main informations I found was:
+Taking a look at the dataset with the describe function we can see that
+Taking a look at the describe of this dataframe we can understand some quick informations:
+
+* Minimum age is 18 (maybe is the minumum age to open a bank account at Portugal?). Maximum age is 95. Mean age is ~41.
+* Balance has a lot of dispersion. At least one client have a negative balance. Maximum balance is higher than 100.000
+* Mean marketing call duration was about 4 minutes. In my opinion, 4 minuts is not a lot considering a marketing (or a sales) call. Which is good because we don't want to upset the client with long calls.
+* Mean number of calls done to the same user was 2. Again, in my opinion, this is ok.
+* Previous looks like there is some outliers. Maximum value here is 275 which means the client was contacted 275 times before the campaign? This value seems off to me.
+* pdays I will convert in a category. -1 will be never_contacted and other values will be already_contacted
+
+Regardless the mean call duration and mean number of calls, this data has a lot of unbalance. 88% os clients does not subscribed a term deposit. It would be a good point to review the message of this call. 
+
+* The majority of clients in the bank work on a blue-collar and management positions, married with secondary degree of education and without personal loan but with housing loan.
+* Also, more people at management, technician and admin did deposits. And its important to notice that, as I mention above the majority of people at the dataset does have a housing loan but most people without this loan did a deposit.
+
+Since 88% of contacted people do not did a deposit at the bank, I think the marketing team should try to increase call duration, maybe give some coupon codes with a third partner or also give discount to loan (house or personal) interest. As we saw on the EDA, a lot of clients have a housing loan, but they do not have a deposit done during this campaign.
+
+![Alt text](images/deposits_by_job.jpg?raw=true)
+![Alt text](images/deposits_by_education.jpg?raw=true)
+![Alt text](images/deposits_by_loan.jpg?raw=true)
+![Alt text](images/deposits_by_marital.jpg?raw=true)
+![Alt text](images/contacts_by_day.jpg?raw=true)
 
 
 ## ML Models <a name="ML_Models"></a>
+With a good classification model, the marketing team can improve how they spend money with customer acquisition. Instead of call to everyone, they could target their audience and reduce CAC.
+
+As a baseline model, I created a Random Forest with default hyperparameters.
+
+This model had an accuracy of 88% and AUC of 0.523 also there is a lot of False positives which is bad here.
+
+For this first model I just did some feature engineering and drop some columns and encoded categorical variables with Sklearn's OneHotEncoder. I kept class imbalance.
+
 
