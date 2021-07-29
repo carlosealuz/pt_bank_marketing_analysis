@@ -35,7 +35,7 @@ This data consist of 16 inputs plus the target. The inputs are the following:
 #### Output variable (desired target):
 17 - y - has the client subscribed a term deposit? (binary: "yes","no")
 
-So, there are some informations interesting in this features, specially the columns with "unknown" values (education, job, contact and poutcome). This could be treated as a new category or as a missing data. In my analysis some columns I use this as a category like job, and other columns I decide to replace unkown values with one category already at the dataset, like contact. Also, poutcome column I decide to treat "unknown" as missing data and end up droping the entire columns because the majority of values were missing.
+So, there are some interesting informations in the features, specially the columns with "unknown" values (education, job, contact and poutcome). This could be treated as a new category or as a missing data. In my analysis some columns I use this as a category like job, and other columns I decide to replace unkown values with one category already at the dataset, like contact. Also, poutcome column I decide to treat "unknown" as missing data and end up droping the entire columns because the majority of values were missing.
 
 ## EDA <a name="EDA"></a>
 I did an EDA to undestand the dataset before train some models and to give some feedback to this bank marketing team about this campaign. Main informations I found was:
