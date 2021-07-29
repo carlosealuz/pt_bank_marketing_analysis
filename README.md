@@ -8,7 +8,7 @@ This dataset contains data regarding a marketing campaign a bank from Portugal d
 1. [Data overview](#Data_overview)
 2. [EDA](#EDA)
 3. [ML Models](#ML_Models)
-4. [Referências](#Referencias)
+4. [References](#References)
 
 ## Data overview <a name="Data_overview"></a>
 
@@ -84,7 +84,7 @@ The last model I trained was a LightGBM with hyperparameters tuned (same strateg
 
 So, this could be a model to put at production maybe in an app in heroku or any cloud this bank want to subscribe. This app could receive a csv file prepared by the marketing team with clients features and it would return a new csv with clients tagged as potential subscribers. With this at hand, they can target their audience and decrease CAC, calling only users with a subscription potential.
 
-## Referências <a name="Referencias"></a>
+## References <a name="References"></a>
 
 * https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
 * https://www.youtube.com/watch?v=WhnkeasZNHI&ab_channel=MarioFilho
